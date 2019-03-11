@@ -17,7 +17,7 @@ LOG_FILE_PATH = './logsave/log_vel_noObs_190304.p'
 
 os.makedirs("/tmp", exist_ok=True)
 RESUME = True
-RENDER = True
+RENDER = False
 
 # Hyper parameters
 MAX_UPDATE = 5000
