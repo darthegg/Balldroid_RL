@@ -1,0 +1,2 @@
+model_checkpoint_path: "model_vel_noObs_190221.ckpt"
+all_model_checkpoint_paths: "model_vel_noObs_190221.ckpt"

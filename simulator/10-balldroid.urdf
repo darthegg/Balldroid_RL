@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<robot name="balldroid">
+
+  <material name="blue">
+    <color rgba="0 0 0.8 0.5"/>
+  </material>
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <sphere radius="0.175"/>
+      </geometry>
+      <material name="blue"/>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.175"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value = "2.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+
+
+  <link name="ball_pendulum">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 -0.05"/>
+      <geometry>
+        <cylinder length="0.1" radius="0.03"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value = "0.1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="ball_pendulum_joint" type="continuous">
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <parent link="base_link"/>
+    <child link="ball_pendulum"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+
+
+  <link name="robot_body">
+    <visual>
+      <geometry>
+        <box size="0.15 0.1 0.07"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="white"/>
+    </visual>
+    <inertial>
+      <mass value = "5.0"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="pendulum_to_body" type="fixed">
+    <parent link="ball_pendulum"/>
+    <child link="robot_body"/>
+    <origin xyz="0 0 -0.1"/>
+  </joint>
+
+</robot>
