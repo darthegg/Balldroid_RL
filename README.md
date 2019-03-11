@@ -1,3 +1,4 @@
 # Balldroid_RL
-reinforcement algorithms to control Balldroid. Environment is using Pybullet
+reinforcement algorithms to control Balldroid. 
+Pybullet environment
 (Upload for portfolio)
